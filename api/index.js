@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api', (req, res) => {
-  res.json({ message: 'Welcome to the API!' });
+  res.json({ message: 'Welcome to the API with Matt!' });
 });
 
 const port = process.env.PORT || 9070;
