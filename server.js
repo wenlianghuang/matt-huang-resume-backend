@@ -8,4 +8,6 @@ app.get("/api/data", (req, res) => {
   res.json({ message: "來自 Express 的回應！" });
 });
 
-app.listen(3000, () => console.log("Server running on port 3000"));
+// Vercel 使用 PORT 3000 可能無效，改成 process.env.PORT
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
