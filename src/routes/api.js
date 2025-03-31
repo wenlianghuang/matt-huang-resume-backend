@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/data', (req, res) => {
-  res.json({ message: '來自 Express 的回應！' });
+  res.json({ message: 'Acer 來自 Express 的回應！' });
 });
 
 module.exports = router;
