@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
+const cors = require('cors');
+router.use(cors());
 // middleware 1: Log the request time
 
 router.use(req,res,next => {
