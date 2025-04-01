@@ -1,10 +1,16 @@
 const express = require('express');
+const cors = require('cors'); // 引入 cors 中間件
 const router = express.Router();
-const cors = require('cors');
-router.use(cors());
-// middleware 1: Log the request time
 
-router.use(req,res,next => {
+// 配置 CORS，允許特定的來源
+router.use(cors({
+  origin: 'https://matt-huang-resume.vercel.app', // 替換為你的前端 URL
+  methods: ['GET', 'POST'], // 允許的 HTTP 方法
+  allowedHeaders: ['Content-Type', 'Authorization'], // 允許的標頭
+}));
+
+// middleware 1: Log the request time
+router.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
   next();
 });
@@ -14,4 +20,3 @@ router.get('/data', (req, res) => {
 });
 
 module.exports = router;
-// 這裡的路由會被用於處理 API 請求，並返回 JSON 格式的數據。
